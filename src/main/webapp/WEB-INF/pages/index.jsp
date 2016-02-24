@@ -22,7 +22,7 @@
 
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
-				<h1><a href="home"><img id="logo-header" src="<c:url "value=/funfit-backend/resources/images/funfit_header.png" />"/></a></h1>
+				<h1><a href="home"><img id="logo-header" src="<c:url value="/funfit-backend/resources/images/funfit_header.png" />"/></a></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="home">Home</a></li>
