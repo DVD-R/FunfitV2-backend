@@ -167,7 +167,7 @@ public class ViewController {
 		  	}
 		  	
 		  	String encodedPolyline = c.create(listLatLng);
-		  	
+		  	System.out.println("ENCODED POLYLINE: "+encodedPolyline);
 		  	territory.setId(generateIdService.generateId());
 		  	territory.setEncoded_polyline(encodedPolyline);
 		  	territory.setLevel(0);
