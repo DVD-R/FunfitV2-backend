@@ -31,7 +31,7 @@
 <script>
 
 
-var service = 'http://192.168.254.104:8081/funfit-backend';
+var service = 'https://funfitv2-backend.herokuapp.com/';
 var i = 0;
 
 $(document).ready(function(){
