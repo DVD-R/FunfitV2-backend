@@ -139,7 +139,7 @@ public class ViewController {
 		return "redirect:/login";
 	}
 	
-	@RequestMapping(value = "/forgeTerritory", method = RequestMethod.GET)
+	@RequestMapping(value = "/forgeTerritory", method = RequestMethod.POST)
 	public String createMarker(@RequestParam(value = "locationName") String locationName,
 							   @RequestParam(value = "latitude") double latitude,
 							   @RequestParam(value = "longitude") double longitude,
