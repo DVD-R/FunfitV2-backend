@@ -6,11 +6,13 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.funfit.usjr.thesis.backend.data.dao.service.AdminDao;
@@ -203,7 +205,7 @@ public class ViewController {
 							  @RequestParam(value = "latitude") double latitude,
 							  @RequestParam(value = "longitude") double longitude,
 							  @RequestParam(value = "eventDate") Date eventDate,
-							  @RequestParam(value = "promotionalImage") String promotionalImage){
+							  @RequestParam(value = "vertices") String vertices){
 		
 		System.out.println(eventName);
 		
@@ -216,12 +218,19 @@ public class ViewController {
 		event.setLatitude(latitude);
 		event.setLongitude(longitude);
 		event.setEventDate(eventDate);
-		event.setPromotionalImage(promotionalImage);
+		event.setVertices(vertices);
 		event.setOrganizerId(organizerId);
 		eventDao.create(event);
 		
 		return "redirect:dashboard";
 	}
+	
+	@RequestMapping(value = "/getEvents", method = RequestMethod.GET,
+					produces = MediaType.APPLICATION_JSON_VALUE)
+	public @ResponseBody List<Event> getEvents(){
+		return eventDao.index();
+	}
+	
 	
 	@RequestMapping(value ="dashboard")
 	public String redirectToDashboard(){

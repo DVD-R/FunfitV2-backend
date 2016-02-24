@@ -91,12 +91,12 @@
         var latitude = $("#latitude").val();
         var longitude = $("#longitude").val();
         var eventDate = $("#eventDate").val();
-        var promotionalImage = $("#promotionalImage").val();
+        var vertices = $("#vertices").val();
         alert("test");
         $.ajax({
             type:"GET",
             url:"http://localhost:8081/funfit-backend/createEvent",
-            data:"eventName="+eventName+"&locationName=" +locationName+ "&latitude=" +latitude+ "&longitude=" +longitude+ "&eventDate=" +eventDate+"&promotionalImage="+promotionalImage
+            data:"eventName="+eventName+"&locationName=" +locationName+ "&latitude=" +latitude+ "&longitude=" +longitude+ "&eventDate=" +eventDate+"&vertices="+vertices
         });
     
     }
