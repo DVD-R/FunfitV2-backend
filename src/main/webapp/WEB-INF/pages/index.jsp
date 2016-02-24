@@ -10,7 +10,7 @@
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
 				
-		<script src="<c:url value="/js/jquery.min.js" />"></script>	
+		<script src="<c:url value="/funfit-backend/resources/js/jquery.min.js" />"></script>	
 		<script src="<c:url value="/resources/js/skel.min.js" />"></script>
 		<script src="<c:url value="/resources/js/skel-layers.min.js" />"></script>
 		<script src="<c:url value="/resources/js/init.js" />"></script>
@@ -22,7 +22,7 @@
 
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
-				<h1><a href="home"><img id="logo-header" src="<c:url "value=/images/funfit_header.png" />"/></a></h1>
+				<h1><a href="home"><img id="logo-header" src="<c:url "value=/funfit-backend/resources/images/funfit_header.png" />"/></a></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="home">Home</a></li>
