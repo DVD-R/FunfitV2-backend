@@ -54,7 +54,7 @@ $(document).ready(function(){
                     +"<td>"+item.eventName+"</td>"
                     +"<td>"+item.locationName+"</td>"
                     +"<td>"+new Date(item.eventDate)+"</td>"
-                    +"<td>"+item.promotionalImage+"</td>"
+                    +"<td>"+item.vertices+"</td>"
                 +"</tr>" )
              
             });

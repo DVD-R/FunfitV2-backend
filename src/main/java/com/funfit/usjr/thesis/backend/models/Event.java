@@ -30,8 +30,8 @@ public class Event implements Serializable{
 	@Column(name = "eventDate", nullable = false)
 	private Date eventDate;
 	
-	@Column(name = "promotionalImage", nullable = false)
-	private String promotionalImage;
+	@Column(name = "vertices", nullable = false)
+	private String vertices;
 	
 	@Column(name = "organizerId", nullable = false)
 	private double organizerId;
@@ -39,7 +39,7 @@ public class Event implements Serializable{
 	public Event(){}
 	
 	public Event(int e_id, String eventName, String locationName, double latitude, double longitude, Date eventDate,
-			String promotionalImage, double organizerId) {
+			String vertices, double organizerId) {
 		super();
 		this.e_id = e_id;
 		this.eventName = eventName;
@@ -47,7 +47,7 @@ public class Event implements Serializable{
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.eventDate = eventDate;
-		this.promotionalImage = promotionalImage;
+		this.vertices = vertices;
 		this.organizerId = organizerId;
 	}
 
@@ -99,12 +99,12 @@ public class Event implements Serializable{
 		this.eventDate = eventDate;
 	}
 
-	public String getPromotionalImage() {
-		return promotionalImage;
+	public String getVertices() {
+		return vertices;
 	}
 
-	public void setPromotionalImage(String promotionalImage) {
-		this.promotionalImage = promotionalImage;
+	public void setVertices(String vertices) {
+		this.vertices = vertices;
 	}
 
 	public double getOrganizerId() {
