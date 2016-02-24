@@ -14,16 +14,15 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<c:url value="/resources/js/jquery.min.js" />
-		<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/skel.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/skel-layers.min.js"/>"></script>
-		<script src="js/init.js"></script>
-			<link rel="stylesheet" href="<c:url value="/resources/css/skel.css"/>" />
-			<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" />
-			<link rel="stylesheet" href="<c:url value="/resources/css/style-xlarge.css"/>" />
-		<link rel="stylesheet" href="<c:url value="/resources/css/akoa.css"/>" />
-			<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css"/>" />
+		<script src="<c:url value="resources/js/jquery.min.js"/>"></script>
+		<script src="<c:url value="resources/js/skel.min.js"/>"></script>
+		<script src="<c:url value="resources/js/skel-layers.min.js"/>"></script>
+		<script src="<c:url value="resources/js/init.js"/>"></script>
+			<link rel="stylesheet" href="<c:url value="resources/css/skel.css"/>" />
+			<link rel="stylesheet" href="<c:url value="resources/css/style.css"/>" />
+			<link rel="stylesheet" href="<c:url value="resources/css/style-xlarge.css"/>" />
+		<link rel="stylesheet" href="<c:url value="resources/css/akoa.css"/>" />
+			<link rel="stylesheet" href="<c:url value="resources/css/bootstrap.css"/>" />
 	</head>
 	<body id="top">
 
@@ -32,7 +31,7 @@
 <script>
 
 
-var service = 'http://172.17.0.75:8081/funfit-backend';
+var service = 'http://192.168.254.104:8081/funfit-backend';
 var i = 0;
 
 $(document).ready(function(){
@@ -75,7 +74,7 @@ $(document).ready(function(){
 
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
-				<h1><a href="dashboard"><img id="logo-header" src="<c:url value="/resources/images/funfit_header.png"/>"/></a></h1>
+				<h1><a href="dashboard"><img id="logo-header" src="<c:url value="resources/images/funfit_header.png"/>"/></a></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="dashboard">Dashboard</a></li>
@@ -88,7 +87,7 @@ $(document).ready(function(){
 
 		<!-- Tables -->
 		<div class="container">
-			<img class="title-icon" src="<c:url value="/resources/images/event.png"/>"/>
+			<img class="title-icon" src="<c:url value="resources/images/event.png"/>"/>
 			<h2>EVENTS</h2>
 <div class="table-responsive">
 <table class="table" id="eventTable">
@@ -105,7 +104,7 @@ $(document).ready(function(){
 </div>
 
 <div class="container">
-	<img class="medal-icon" src="<c:url value="/resources/images/medal.png"/>"/>
+	<img class="medal-icon" src="<c:url value="resources/images/medal.png"/>"/>
 	<h2>LEADERBOARD</h2>
 <div class="table-responsive">
 <table class="table">
