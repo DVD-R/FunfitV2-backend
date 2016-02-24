@@ -25,11 +25,11 @@
     <mvc:annotation-driven/>
 
     <context:property-placeholder location="classpath*:META-INF/spring/*.properties"/>
-<bean class="org.apache.commons.dbcp.BasicDataSource" destroy-method="close" id="dataSource">
+<bean class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close" id="dataSource">
         <property name="driverClassName" value="org.postgresql.Driver"/>
-        <property name="url" value="jdbc:postgresql://192.168.254.104:5432/funfit"/>
-        <property name="username" value="postgres"/>
-        <property name="password" value="Philippines"/>
+        <property name="url" value="jdbc:postgresql://ec2-174-129-26-115.compute-1.amazonaws.com:5432/d8l4e5pd15uhqn"/>
+        <property name="username" value="fqyhgaswppomzq"/>
+        <property name="password" value="P5LhCFQCOPleZmbIrZhE9Dud1p"/>
         <property name="testOnBorrow" value="true"/>
         <property name="testOnReturn" value="true"/>
         <property name="testWhileIdle" value="true"/>
@@ -47,7 +47,7 @@
         <property name="dataSource" ref="dataSource"/>
     </bean>
     <bean class="java.net.URI" id="dbUrl">
-      <constructor-arg value="postgres://postgres:Philippines@192.168.254.104:5432/funfit"/>
+      <constructor-arg value="postgresql://fqyhgaswppomzq:P5LhCFQCOPleZmbIrZhE9Dud1p@ec2-174-129-26-115.compute-1.amazonaws.com:5432/d8l4e5pd15uhqn"/>
     </bean>
 
 </beans>
