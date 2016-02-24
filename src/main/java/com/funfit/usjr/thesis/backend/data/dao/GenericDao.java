@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
  * @author victor
  * @param <T>
  */
+@Transactional
 public interface GenericDao<T> {
 	
 	public void create(T data);
