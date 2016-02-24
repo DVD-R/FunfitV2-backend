@@ -34,7 +34,7 @@
 		<!-- Banner -->
 			<section id="banner">
 				<div class="inner">				
-				<img id="logo" src="<c:url value="/resources/images/funfit_logo.png" />"/>
+				<img id="logo" src="<c:url value="resources/images/funfit_logo.png" />"/>
 					<h2>FUNFIT</h2>
 					<p>The world is your battlefield.</p>
 				</div>

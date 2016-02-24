@@ -9,22 +9,22 @@
 		<meta name="description" content="" />
 		<meta name="keywords" content="" />
 		<!--[if lte IE 8]><script src="js/html5shiv.js"></script><![endif]-->
-		<script src="<c:url value="/resources/js/jquery.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/skel.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/skel-layers.min.js"/>"></script>
-		<script src="<c:url value="/resources/js/init.js"/>"></script>
-		<script src="<c:url value="/resources/js/bootstrap-datepicker.js"/>"></script>
+		<script src="<c:url value="resources/js/jquery.min.js"/>"></script>
+		<script src="<c:url value="resources/js/skel.min.js"/>"></script>
+		<script src="<c:url value="resources/js/skel-layers.min.js"/>"></script>
+		<script src="<c:url value="resources/js/init.js"/>"></script>
+		<script src="<c:url value="resources/js/bootstrap-datepicker.js"/>"></script>
 		<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
 		<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
 		<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
 		<script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3&key=AIzaSyASXl_HuYEdFeDtHMHcPJnlqQmSsWHR7mo&signed_in=true&libraries=places,drawing"></script>
 		
-			<link rel="stylesheet" href="<c:url value="/resources/css/skel.css"/>" />
-			<link rel="stylesheet" href="<c:url value="/resources/css/style.css"/>" />
-			<link rel="stylesheet" href="<c:url value="/resources/css/style-xlarge.css"/>" />
-		<link rel="stylesheet" href="<c:url value="/resources/css/event.css"/>" />
-		<link rel="stylesheet" href="<c:url value="/resources/css/datepicker.css"/>" />
-		<link rel="stylesheet" href="<c:url value="/resources/css/bootstrap.css"/>" />
+			<link rel="stylesheet" href="<c:url value="resources/css/skel.css"/>" />
+			<link rel="stylesheet" href="<c:url value="resources/css/style.css"/>" />
+			<link rel="stylesheet" href="<c:url value="resources/css/style-xlarge.css"/>" />
+		<link rel="stylesheet" href="<c:url value="resources/css/event.css"/>" />
+		<link rel="stylesheet" href="<c:url value="resources/css/datepicker.css"/>" />
+		<link rel="stylesheet" href="<c:url value="resources/css/bootstrap.css"/>" />
 	</head>
 	<body id="top">
 
@@ -97,7 +97,7 @@
 
 		<!-- Header -->
 			<header id="header" class="skel-layers-fixed">
-				<h1><a href="dashboard.html"><img id="logo-header" src="<c:url value="/resources/images/funfit_header.png"/>"/></a></h1>
+				<h1><a href="dashboard.html"><img id="logo-header" src="<c:url value="resources/images/funfit_header.png"/>"/></a></h1>
 				<nav id="nav">
 					<ul>
 						<li><a href="dashboard.html">Dashboard</a></li>
