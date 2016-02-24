@@ -1,15 +1,13 @@
 package com.funfit.usjr.thesis.backend.data.dao.service.impl;
 
-import java.util.List;
-
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
-import javax.persistence.criteria.CriteriaQuery;
 
+import org.springframework.context.annotation.Scope;
+import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.funfit.usjr.thesis.backend.data.dao.GenericDao;
-import com.google.common.base.Preconditions;
 
 /**
  * 
@@ -18,9 +16,10 @@ import com.google.common.base.Preconditions;
  * @param <T>
  */
 @Transactional
+@Scope(proxyMode = ScopedProxyMode.INTERFACES)
 public class GenericDaoImpl<T> implements GenericDao<T>{
 	private Class<T> thisClass;
-	
+
 	protected EntityManager entityManager;
 
 	public GenericDaoImpl(){
