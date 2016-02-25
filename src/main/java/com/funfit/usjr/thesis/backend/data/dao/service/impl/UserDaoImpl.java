@@ -28,14 +28,14 @@ public class UserDaoImpl extends GenericDaoImpl<Users> implements UserDao{
 	@Override
 	public boolean checkEmail(String email) {
 		// TODO Auto-generated method stub
-	      Query query = entityManager.createQuery( "Select u " + "from Users u " + "where u.email=:email");
+	      Query query = entityManager.createQuery("select u from Users u where u.email=:email");
 	      query.setParameter("email",email);
-	      List<Users> list=(List<Users>)query.getResultList( );
-		if(list != null){
-			return true;	
-		}else{
-			return false;
-		}
+	      try{
+	      Users users= (Users) query.getSingleResult();
+	      return true;
+	      }catch(Exception e){
+	      return false;	  
+	      }
 	}
 
 	@Override
