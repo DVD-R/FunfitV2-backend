@@ -42,7 +42,8 @@ public class FactionDaoImpl extends GenericDaoImpl<Faction> implements FactionDa
 	public Faction query(int id) {
 		// TODO Auto-generated method stub
 		
-		Query query = entityManager.createQuery("select f from Faction f where f.user_id = "+ id);
+		Query query = entityManager.createQuery("select f from Faction f where f.user_id=:user_id");
+		query.setParameter("user_id", id);
 		List<Faction> queryList = query.getResultList();
 		Faction f = new Faction();
 		for(Faction fac: queryList){
