@@ -5,19 +5,25 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.funfit.usjr.thesis.backend.data.dao.service.TerritoryDao;
+import com.funfit.usjr.thesis.backend.dto.RequestCapture;
 import com.funfit.usjr.thesis.backend.dto.ResponseTerritory;
 import com.funfit.usjr.thesis.backend.models.Territory;
+import com.funfit.usjr.thesis.backend.service.CaptureTerritoryService;
 
 @RestController
 public class TerritoryController {
 
 	@Autowired
 	private TerritoryDao territoryDao;
+	
+	@Autowired
+	private CaptureTerritoryService captureTerritoryService;
 	
 	@RequestMapping(value = "/getTerritory",
 					produces = MediaType.APPLICATION_JSON_VALUE,
@@ -39,4 +45,11 @@ public class TerritoryController {
 		return  listResponseTerritory;
 	}
 	
+	@RequestMapping(value = "/captureTerritory",
+					consumes = MediaType.APPLICATION_JSON_VALUE,
+					method = RequestMethod.POST)
+	public List<ResponseTerritory> captureTerritory(@RequestBody RequestCapture requestCapture){
+		
+	return captureTerritoryService.captureTerritory(requestCapture);	
+	}
 }
