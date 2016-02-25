@@ -126,11 +126,14 @@ public class ProfileController {
 		Users checking = userDao.show(Integer.parseInt(profileRequestJson.getUserId()));
 		boolean flag = userDao.checkEmail(profileRequestJson.getEmail());
 	
-		
-		if(checking == null){
-			userDao.create(user);
-			healthPreferenceDao.create(healthPreference);
-			factionDao.create(faction);
+		if(!flag && checking == null){
+			userDao.create(user);			
+			try{
+				healthPreferenceDao.create(healthPreference);
+				factionDao.create(faction);
+				}catch(Exception e){
+					e.printStackTrace();
+				}
 		}
 		
 		Faction f = factionDao.query(Integer.parseInt(profileRequestJson.getUserId()));
