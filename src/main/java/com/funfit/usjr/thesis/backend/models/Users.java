@@ -33,9 +33,13 @@ public class Users implements Serializable{
 	@Column(name = "gcmKey", nullable = false)
 	private String gcmKey;
 	
+	@Column(name = "points")
+	private int points;
+	
 	public Users(){}
 	
-	public Users(int id, String firstname, String lastname, String email, String gender, int age, String gcmKey) {
+	public Users(int id, String firstname, String lastname, String email, String gender, int age, String gcmKey,
+			int points) {
 		super();
 		this.id = id;
 		this.firstname = firstname;
@@ -44,6 +48,7 @@ public class Users implements Serializable{
 		this.gender = gender;
 		this.age = age;
 		this.gcmKey = gcmKey;
+		this.points = points;
 	}
 
 	public int getId() {
@@ -101,4 +106,13 @@ public class Users implements Serializable{
 	public void setGcmKey(String gcmKey){
 		this.gcmKey = gcmKey;
 	}
+
+	public int getPoints() {
+		return points;
+	}
+
+	public void setPoints(int points) {
+		this.points = points;
+	}
+
 }

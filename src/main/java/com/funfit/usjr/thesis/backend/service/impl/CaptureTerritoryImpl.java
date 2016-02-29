@@ -82,11 +82,7 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 					items.add(userInvader.getGcmKey());
 					items.add(userDefender.getGcmKey());
 					
-					for(String a: items){
-					System.out.println(a.toString());
-					}
 					notificationService.broadcast(items);
-					
 					territory.setUser_id(requestCapture.getUserId());
 					territoryDao.update(territory);
 				}
@@ -116,22 +112,6 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 						territory.setStatus("captured");
 						territory.setTime_stamp(dateobj);
 						territory.setFaction(faction);
-					
-						List<String> items = new ArrayList<>();
-						
-						Users userInvader = new Users();
-						userInvader = userDao.show(requestCapture.getUserId());
-						
-						Territory t = new Territory();
-						t = territoryDao.show(requestCapture.getTerritoryId());
-						Users userDefender = new Users();
-						userDefender = userDao.show(t.getId());
-						
-						items.add(userInvader.getGcmKey());
-						items.add(userDefender.getGcmKey());
-						
-						notificationService.broadcast(items);
-						
 						territory.setUser_id(requestCapture.getUserId());
 						territoryDao.update(territory);
 					}	

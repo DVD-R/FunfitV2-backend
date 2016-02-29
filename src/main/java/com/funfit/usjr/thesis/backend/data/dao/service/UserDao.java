@@ -16,4 +16,5 @@ import com.funfit.usjr.thesis.backend.models.Users;
 public interface UserDao extends GenericDao<Users>{
 	public boolean checkEmail(String email);
 	public List<Users> index();
+	public List<Users> filterWorld();
 }

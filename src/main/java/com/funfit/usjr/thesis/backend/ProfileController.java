@@ -155,4 +155,10 @@ public class ProfileController {
 			System.out.println(e);
 		}
 	}
+	
+	
+	@RequestMapping(value = "/filterWorld", method = RequestMethod.GET)
+	public @ResponseBody List<Users> filterWorld(){
+		return userDao.filterWorld();
+	}
 }
