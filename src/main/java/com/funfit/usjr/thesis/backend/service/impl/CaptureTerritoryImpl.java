@@ -70,10 +70,20 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 					territory.setTime_stamp(dateobj);
 					territory.setFaction(faction);
 					List<String> items = new ArrayList<>();
-					Users user = new Users();
-					user = userDao.show(requestCapture.getUserId());
-					items.add(user.getGcmKey());
+					
+					Users userInvader = new Users();
+					userInvader = userDao.show(requestCapture.getUserId());
+					
+					Territory t = new Territory();
+					t = territoryDao.show(requestCapture.getTerritoryId());
+					Users userDefender = new Users();
+					userDefender = userDao.show(t.getId());
+					
+					items.add(userInvader.getGcmKey());
+					items.add(userDefender.getGcmKey());
+					
 					notificationService.broadcast(items);
+					
 					territory.setUser_id(requestCapture.getUserId());
 					territoryDao.update(territory);
 				}
@@ -103,6 +113,22 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 						territory.setStatus("captured");
 						territory.setTime_stamp(dateobj);
 						territory.setFaction(faction);
+					
+						List<String> items = new ArrayList<>();
+						
+						Users userInvader = new Users();
+						userInvader = userDao.show(requestCapture.getUserId());
+						
+						Territory t = new Territory();
+						t = territoryDao.show(requestCapture.getTerritoryId());
+						Users userDefender = new Users();
+						userDefender = userDao.show(t.getId());
+						
+						items.add(userInvader.getGcmKey());
+						items.add(userDefender.getGcmKey());
+						
+						notificationService.broadcast(items);
+						
 						territory.setUser_id(requestCapture.getUserId());
 						territoryDao.update(territory);
 					}	
