@@ -45,4 +45,16 @@ public class UserDaoImpl extends GenericDaoImpl<Users> implements UserDao{
 		
 		return query.getResultList();
 	}
+
+	@Override
+	public List<Users> filterWorld() {
+		// TODO Auto-generated method stub
+
+	    Query query = entityManager.createQuery("SELECT u FROM Users c ORDER BY c.points DESC");
+	    List<Users> userList = query.getResultList();
+		
+		return userList;
+	}
+	
+
 }
