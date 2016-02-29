@@ -10,11 +10,14 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.funfit.usjr.thesis.backend.data.dao.service.FactionDao;
 import com.funfit.usjr.thesis.backend.data.dao.service.TerritoryDao;
+import com.funfit.usjr.thesis.backend.data.dao.service.UserDao;
 import com.funfit.usjr.thesis.backend.dto.RequestCapture;
 import com.funfit.usjr.thesis.backend.dto.ResponseTerritory;
 import com.funfit.usjr.thesis.backend.models.Faction;
 import com.funfit.usjr.thesis.backend.models.Territory;
+import com.funfit.usjr.thesis.backend.models.Users;
 import com.funfit.usjr.thesis.backend.service.CaptureTerritoryService;
+import com.funfit.usjr.thesis.backend.service.NotificationService;
 
 @Transactional
 @Service("captureTerritoryService")
@@ -25,7 +28,13 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 	FactionDao factionDao;
 	
 	@Autowired
+	NotificationService notificationService;
+	
+	@Autowired
 	TerritoryDao territoryDao;
+	
+	@Autowired
+	UserDao userDao;
 	
 	@Override
 	public List<ResponseTerritory> captureTerritory(RequestCapture requestCapture) {
@@ -45,12 +54,14 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 				territory.setLevel(territory.getLevel()+1);
 				territory.setStatus("captured");
 				territory.setTime_stamp(dateobj);
+				territory.setUser_id(requestCapture.getUserId());
 				territoryDao.update(territory);
 			}else if(requestCapture.getFaction_description().equals("velocity")){
 				if(territory.getLevel() >= 1){
 				territory.setLevel(territory.getLevel()-1);
 				territory.setStatus("captured");
 				territory.setTime_stamp(dateobj);
+				territory.setUser_id(requestCapture.getUserId());
 				territoryDao.update(territory);
 				}else if(territory.getLevel() == 0){
 					territory.setFaction_description(requestCapture.getFaction_description());
@@ -58,6 +69,12 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 					territory.setStatus("captured");
 					territory.setTime_stamp(dateobj);
 					territory.setFaction(faction);
+					List<String> items = new ArrayList<>();
+					Users user = new Users();
+					user = userDao.show(requestCapture.getUserId());
+					items.add(user.getGcmKey());
+					notificationService.broadcast(items);
+					territory.setUser_id(requestCapture.getUserId());
 					territoryDao.update(territory);
 				}
 			}
@@ -70,6 +87,7 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 				territory.setLevel(territory.getLevel()+1);
 				territory.setStatus("captured");
 				territory.setTime_stamp(dateobj);
+				territory.setUser_id(requestCapture.getUserId());
 				territoryDao.update(territory);
 				
 			}else if(requestCapture.getFaction_description().equals("impulse")){
@@ -77,6 +95,7 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 					territory.setLevel(territory.getLevel()-1);
 					territory.setStatus("captured");
 					territory.setTime_stamp(dateobj);
+					territory.setUser_id(requestCapture.getUserId());
 					territoryDao.update(territory);
 					}else if(territory.getLevel() == 0){
 						territory.setFaction_description(requestCapture.getFaction_description());
@@ -84,6 +103,7 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 						territory.setStatus("captured");
 						territory.setTime_stamp(dateobj);
 						territory.setFaction(faction);
+						territory.setUser_id(requestCapture.getUserId());
 						territoryDao.update(territory);
 					}	
 			}
@@ -96,6 +116,7 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 			territory.setStatus("captured");
 			territory.setTime_stamp(dateobj);
 			territory.setFaction(faction);
+			territory.setUser_id(requestCapture.getUserId());
 			territoryDao.update(territory);
 		}
 				
