@@ -82,6 +82,9 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 					items.add(userInvader.getGcmKey());
 					items.add(userDefender.getGcmKey());
 					
+					for(String a: items){
+					System.out.println(a.toString());
+					}
 					notificationService.broadcast(items);
 					
 					territory.setUser_id(requestCapture.getUserId());
