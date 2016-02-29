@@ -143,7 +143,8 @@ public class ViewController {
 	public String createMarker(@RequestParam(value = "locationName") String locationName,
 							   @RequestParam(value = "latitude") double latitude,
 							   @RequestParam(value = "longitude") double longitude,
-							   @RequestParam(value = "vertices") String vertices){
+							   @RequestParam(value = "vertices") String vertices,
+							   @RequestParam(value = "points") int points){
 		
 		   Territory territory = new Territory();
 		   int counter = 0;
@@ -174,7 +175,7 @@ public class ViewController {
 		  	territory.setEncoded_polyline(encodedPolyline);
 		  	territory.setLevel(0);
 		  	territory.setStatus("uncharted");
-		  	
+		  	territory.setPoints(points);
 		  	territoryDao.create(territory);
 			List<String> items = new ArrayList<>();
 			try{  

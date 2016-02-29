@@ -85,12 +85,15 @@
 		var latitude = $("#latitude").val();
 		var longitude = $("#longitude").val();
 		var vertices = $("#vertices").val();
+		var points = $("#points").val();
 		
 		$.ajax({
 			type:"POST",
-			url:"https://funfitv2-backend.herokuapp.com/forgeTerritory",
-			data:"locationName=" +locationName+ "&latitude=" +latitude+ "&longitude=" +longitude+ "&vertices=" +vertices
+			url:"http://localhost:8081/funfit-backend/forgeTerritory",
+			data:"locationName=" +locationName+ "&latitude=" +latitude+ "&longitude=" +longitude+ "&vertices=" +vertices+ "&points="+points
 		});
+		
+		
 	}
 	</script>
 
@@ -122,6 +125,7 @@
 												<input type="text" placeholder="Latitude" id = "latitude" disabled>
 												<input type="text" placeholder="Longitude" id = "longitude"  disabled>
 												<input type="text" placeholder="Vertices" id = "vertices" disabled>
+												<input type="text" placeholder="Points" id = "points">
 												<ul class="actions">
 													<li><input type="button" value="Create" class="button special" onclick="forgeTerritory();"/></li>
 												</ul>
