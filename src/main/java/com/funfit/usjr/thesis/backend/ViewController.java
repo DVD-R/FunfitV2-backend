@@ -207,6 +207,33 @@ public class ViewController {
 							  @RequestParam(value = "eventDate") Date eventDate,
 							  @RequestParam(value = "vertices") String vertices){
 		
+		
+		   int counter = 0;
+		   String delimiters = "(,)";
+		   LatLng latlng = null;
+		   List<Double> listLatitude = new ArrayList<>();
+		   List<Double> listLongitude = new ArrayList<>();
+		   ArrayList<LatLng> listLatLng = new ArrayList<>();
+		   CreatePolyline c = new CreatePolyline();
+		   	StringTokenizer stringTokenizer = new StringTokenizer(vertices, delimiters);
+		  	while(stringTokenizer.hasMoreTokens()){
+		  		counter++;
+		  		if(counter%2 == 1){
+		  			listLatitude.add(Double.parseDouble(stringTokenizer.nextToken()));
+		  		}else{
+		  			listLongitude.add(Double.parseDouble(stringTokenizer.nextToken()));
+		  		}
+		  	}
+		   	
+		  	for(int i = 0; i < listLatitude.size(); i++){
+		  		latlng = new LatLng(listLatitude.get(i).doubleValue(), listLongitude.get(i).doubleValue());
+		  		listLatLng.add(latlng);
+		  	}
+		  	
+		  	String encodedPolyline = c.create(listLatLng);
+		
+		
+		
 		System.out.println(eventName);
 		
 		int organizerId = (int) Math.floor(System
@@ -218,7 +245,7 @@ public class ViewController {
 		event.setLatitude(latitude);
 		event.setLongitude(longitude);
 		event.setEventDate(eventDate);
-		event.setVertices(vertices);
+		event.setVertices(encodedPolyline);
 		event.setOrganizerId(organizerId);
 		eventDao.create(event);
 		
