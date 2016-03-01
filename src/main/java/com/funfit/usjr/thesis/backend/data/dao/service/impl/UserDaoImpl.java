@@ -50,7 +50,7 @@ public class UserDaoImpl extends GenericDaoImpl<Users> implements UserDao{
 	public List<Users> filterWorld() {
 		// TODO Auto-generated method stub
 
-	    Query query = entityManager.createQuery("SELECT u FROM Users c ORDER BY c.points DESC");
+	    Query query = entityManager.createQuery("SELECT u FROM Users u ORDER BY u.points DESC");
 	    List<Users> userList = query.getResultList();
 		
 		return userList;
