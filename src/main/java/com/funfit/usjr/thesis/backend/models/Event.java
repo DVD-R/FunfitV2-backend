@@ -35,11 +35,14 @@ public class Event implements Serializable{
 	
 	@Column(name = "organizerId", nullable = false)
 	private double organizerId;
+	
+	@Column(name = "marissa", nullable = false)
+	private String marissa;
 
 	public Event(){}
 	
 	public Event(int e_id, String eventName, String locationName, double latitude, double longitude, Date eventDate,
-			String vertices, double organizerId) {
+			String vertices, double organizerId, String marissa) {
 		super();
 		this.e_id = e_id;
 		this.eventName = eventName;
@@ -49,6 +52,7 @@ public class Event implements Serializable{
 		this.eventDate = eventDate;
 		this.vertices = vertices;
 		this.organizerId = organizerId;
+		this.marissa = marissa;
 	}
 
 	public int getId() {
@@ -114,5 +118,14 @@ public class Event implements Serializable{
 	public void setOrganizerId(int organizerId) {
 		this.organizerId = organizerId;
 	}
+
+	public String getMarissa() {
+		return marissa;
+	}
+
+	public void setMarissa(String marissa) {
+		this.marissa = marissa;
+	}
+	
 	
 }
