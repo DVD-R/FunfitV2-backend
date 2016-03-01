@@ -26,7 +26,7 @@
 
     <context:property-placeholder location="classpath*:META-INF/spring/*.properties"/>
 <bean class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close" id="dataSource">
-        <property name="driverClassName" value="org.postgresql.Driver"/>
+     <property name="driverClassName" value="org.postgresql.Driver"/>
         <property name="url" value="jdbc:postgresql://ec2-174-129-26-115.compute-1.amazonaws.com:5432/d8l4e5pd15uhqn"/>
         <property name="username" value="fqyhgaswppomzq"/>
         <property name="password" value="P5LhCFQCOPleZmbIrZhE9Dud1p"/>
