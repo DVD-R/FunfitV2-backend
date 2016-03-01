@@ -45,6 +45,8 @@ public class CaptureTerritoryImpl implements CaptureTerritoryService{
 		territory = territoryDao.fetchSpecificTerritory(requestCapture.getTerritoryId());
 		Date dateobj = new Date();
 
+		System.out.println(territory.getPoints());
+		
 		try{
 		switch(territory.getFaction_description()){
 		
