@@ -206,7 +206,8 @@ public class ViewController {
 							  @RequestParam(value = "latitude") double latitude,
 							  @RequestParam(value = "longitude") double longitude,
 							  @RequestParam(value = "eventDate") Date eventDate,
-							  @RequestParam(value = "vertices") String vertices){
+							  @RequestParam(value = "vertices") String vertices,
+							  @RequestParam(value = "marissa") String marissa){
 		
 		
 		   int counter = 0;
@@ -248,6 +249,7 @@ public class ViewController {
 		event.setEventDate(eventDate);
 		event.setVertices(encodedPolyline);
 		event.setOrganizerId(organizerId);
+		event.setMarissa(marissa);
 		eventDao.create(event);
 		
 		return "redirect:dashboard";
