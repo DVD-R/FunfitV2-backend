@@ -89,7 +89,7 @@
 		
 		$.ajax({
 			type:"POST",
-			url:"http://localhost:8081/funfit-backend/forgeTerritory",
+			url:"https://funfitv2-backend.herokuapp.com/forgeTerritory",
 			data:"locationName=" +locationName+ "&latitude=" +latitude+ "&longitude=" +longitude+ "&vertices=" +vertices+ "&points="+points
 		});
 		
