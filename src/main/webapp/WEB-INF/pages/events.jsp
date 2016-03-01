@@ -97,7 +97,7 @@
         alert("test");2
         $.ajax({
             type:"GET",
-            url:"http://localhost:8081/funfit-backend/createEvent",
+            url:"https://funfitv2-backend.herokuapp.com/createEvent",
             data:"eventName="+eventName+"&locationName=" +locationName+ "&latitude=" +latitude+ "&longitude=" +longitude+ "&eventDate=" +eventDate+"&vertices="+vertices+ "&marissa="+marissa
         });
     
