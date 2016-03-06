@@ -207,7 +207,8 @@ public class SaveMealServiceImpl implements SaveMealService{
 	@Override
 	public ResponseEntity<ResponseStatus> saveMealList(List<RequestMeal> requestMealList) {
 		// TODO Auto-generated method stub
-	
+		ResponseStatus responseStatus = new ResponseStatus();
+		
 		for(RequestMeal requestMeal: requestMealList){
 		
 			System.out.println(requestMeal.getName());
@@ -227,9 +228,7 @@ public class SaveMealServiceImpl implements SaveMealService{
 			meals.setBreakfast(breakfast);
 			meals.setUsers(user.getId());
 			mealsDao.create(meals);
-			ResponseStatus responseStatus = new ResponseStatus();
 			responseStatus.setStatus(true);
-			return new ResponseEntity<>(responseStatus, HttpStatus.OK);
 			}
 		else if(requestMeal.getCourse().equals("Lunch")){
 			meals = new Meals();
@@ -243,9 +242,7 @@ public class SaveMealServiceImpl implements SaveMealService{
 			meals.setLunch(lunch);
 			meals.setUsers(user.getId());
 			mealsDao.create(meals);
-			ResponseStatus responseStatus = new ResponseStatus();
 			responseStatus.setStatus(true);
-			return new ResponseEntity<>(responseStatus, HttpStatus.OK);
 		}else if(requestMeal.getCourse().equals("Dinner")){
 			meals = new Meals();
 			dinner = new Dinner();
@@ -258,13 +255,11 @@ public class SaveMealServiceImpl implements SaveMealService{
 			meals.setDinner(dinner);
 			meals.setUsers(user.getId());
 			mealsDao.create(meals);
-			ResponseStatus responseStatus = new ResponseStatus();
 			responseStatus.setStatus(true);
-			return new ResponseEntity<>(responseStatus, HttpStatus.OK);
 		}
 		
 		}
 		
-		return new ResponseEntity<>(HttpStatus.CONFLICT);
+		return new ResponseEntity<>(responseStatus, HttpStatus.OK);
 	}
 }
