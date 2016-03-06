@@ -1,48 +1,26 @@
-package com.funfit.usjr.thesis.backend.models;
+package com.funfit.usjr.thesis.backend.dto;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import java.io.Serializable;
 
-@Entity
-@Table(name = "food")
-public class Food {
+public class RequestMeal implements Serializable{
 
-	@Id @GeneratedValue
-	private int foodId;
-	
-	@Column(name = "calories")
+	private String date;
 	private double calories;
-	
-	@Column(name = "carbohydrate")
 	private double carbohydrate;
-	
-	@Column(name = "cholesterol")
 	private double cholesterol;
-	
-	@Column(name = "course")
 	private String course;
-	
-	@Column(name = "fat")
 	private double fat;
-	
-	@Column(name = "name")
 	private String name;
-	
-	@Column(name = "protein")
 	private double protein;
-	
-	@Column(name = "sodium")
 	private double sodium;
+	private int userId;
 	
-	public Food(){}
+	public RequestMeal(){}
 
-	public Food(int foodId, double calories, double carbohydrate, double cholesterol, String course, double fat,
-			String name, double protein, double sodium) {
+	public RequestMeal(String date, double calories, double carbohydrate, double cholesterol, String course, double fat,
+			String name, double protein, double sodium, int userId) {
 		super();
-		this.foodId = foodId;
+		this.date = date;
 		this.calories = calories;
 		this.carbohydrate = carbohydrate;
 		this.cholesterol = cholesterol;
@@ -51,14 +29,15 @@ public class Food {
 		this.name = name;
 		this.protein = protein;
 		this.sodium = sodium;
+		this.userId = userId;
 	}
 
-	public int getFoodId() {
-		return foodId;
+	public String getDate() {
+		return date;
 	}
 
-	public void setFoodId(int foodId) {
-		this.foodId = foodId;
+	public void setDate(String date) {
+		this.date = date;
 	}
 
 	public double getCalories() {
@@ -123,5 +102,13 @@ public class Food {
 
 	public void setSodium(double sodium) {
 		this.sodium = sodium;
+	}
+
+	public int getUserId() {
+		return userId;
+	}
+
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 }
