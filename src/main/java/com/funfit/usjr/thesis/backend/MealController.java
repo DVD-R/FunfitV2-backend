@@ -27,8 +27,9 @@ public class MealController {
 					consumes = MediaType.APPLICATION_JSON_VALUE,
 					produces = MediaType.APPLICATION_JSON_VALUE,
 					method = RequestMethod.POST)
-	public ResponseEntity<ResponseStatus> saveMeal(@RequestBody RequestMeal requestMeal){
-		return saveMealService.saveMeal(requestMeal);
+	public List<ResponseMeal> saveMeal(@RequestBody RequestMeal requestMeal){
+		 saveMealService.saveMeal(requestMeal);
+		return saveMealService.queryMealList(requestMeal.getUserId());
 	}
 	
 	
