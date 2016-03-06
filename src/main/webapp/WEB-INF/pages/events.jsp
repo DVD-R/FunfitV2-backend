@@ -92,13 +92,12 @@
         var longitude = $("#longitude").val();
         var eventDate = $("#eventDate").val();
         var vertices = $("#vertices").val();
-        var marissa = $("#marissa").val();
         
         alert("test");2
         $.ajax({
             type:"GET",
             url:"https://funfitv2-backend.herokuapp.com/createEvent",
-            data:"eventName="+eventName+"&locationName=" +locationName+ "&latitude=" +latitude+ "&longitude=" +longitude+ "&eventDate=" +eventDate+"&vertices="+vertices+ "&marissa="+marissa
+            data:"eventName="+eventName+"&locationName=" +locationName+ "&latitude=" +latitude+ "&longitude=" +longitude+ "&eventDate=" +eventDate+"&vertices="+vertices
         });
     
     }
@@ -134,8 +133,6 @@
                                                 <input type="text" placeholder="Longitude" id = "longitude"  disabled>
                                                 <input type="text" placeholder="Event Date" id="eventDate">
                                                 <input type="text" placeholder="Vertices" id = "vertices">
-                                                <input type="text" placeholder="Marissa" id = "marissa">
-
                                                 <ul class="actions">
                                                     <li><input type="button" value="Create" class="button special" onclick="createEvents();"/></li>
                                                     </ul>
