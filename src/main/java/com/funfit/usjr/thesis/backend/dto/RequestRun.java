@@ -8,15 +8,15 @@ import javax.persistence.OneToOne;
 
 public class RequestRun implements Serializable{
 	
-	private int runId;
+	private long runId;
 	private String date;
-	private int distance;
-	private int time;
-	private int userId;
+	private long distance;
+	private long time;
+	private long userId;
 	
 	public RequestRun(){}
 
-	public RequestRun(int runId, String date, int distance, int time, int userId) {
+	public RequestRun(long runId, String date, long distance, long time, long userId) {
 		super();
 		this.runId = runId;
 		this.date = date;
@@ -25,7 +25,7 @@ public class RequestRun implements Serializable{
 		this.userId = userId;
 	}
 
-	public int getRunId() {
+	public long getRunId() {
 		return runId;
 	}
 
@@ -41,7 +41,7 @@ public class RequestRun implements Serializable{
 		this.date = date;
 	}
 
-	public int getDistance() {
+	public long getDistance() {
 		return distance;
 	}
 
@@ -49,15 +49,15 @@ public class RequestRun implements Serializable{
 		this.distance = distance;
 	}
 
-	public int getTime() {
+	public long getTime() {
 		return time;
 	}
 
-	public void setTime(int time) {
+	public void setTime(long time) {
 		this.time = time;
 	}
 
-	public int getUserId() {
+	public long getUserId() {
 		return userId;
 	}
 
