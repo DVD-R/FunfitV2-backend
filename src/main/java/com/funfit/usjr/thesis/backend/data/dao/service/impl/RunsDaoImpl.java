@@ -51,7 +51,7 @@ public class RunsDaoImpl extends GenericDaoImpl<Runs> implements RunsDao{
 	@Override
 	public boolean checkRun(RequestRun requestRun) {
 		// TODO Auto-generated method stub
-		user = userDao.show(requestRun.getUserId());
+		user = userDao.show(Integer.parseInt(String.valueOf(requestRun.getUserId())));
 
 		Runs runs = new Runs();
 		

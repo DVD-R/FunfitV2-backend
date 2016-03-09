@@ -31,7 +31,7 @@ public class RunsController {
 	@RequestMapping(value = "/queryRun",
 					produces = MediaType.APPLICATION_JSON_VALUE,
 					method = RequestMethod.GET)
-	public List<Runs> queryRun(@RequestParam(value = "userId") int userId){
+	public List<RequestRun> queryRun(@RequestParam(value = "userId") int userId){
 		return runService.queryRun(userId);
 	}
 

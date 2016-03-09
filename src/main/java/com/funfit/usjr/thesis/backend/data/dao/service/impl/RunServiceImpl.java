@@ -1,5 +1,6 @@
 package com.funfit.usjr.thesis.backend.data.dao.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,11 +32,11 @@ public class RunServiceImpl implements RunService{
 		// TODO Auto-generated method stub
 		user = new Users();
 		runs = new Runs();
-		user = userDao.show(requestRun.getUserId());
-		runs.setRunId(requestRun.getRunId());
+		user = userDao.show(Integer.parseInt(String.valueOf(requestRun.getUserId())));
+		runs.setRunId(Integer.parseInt(String.valueOf(requestRun.getRunId())));
 		runs.setDate(requestRun.getDate());
-		runs.setDistance(requestRun.getDistance());
-		runs.setTime(requestRun.getTime());
+		runs.setDistance(Integer.parseInt(String.valueOf(requestRun.getDistance())));
+		runs.setTime(Integer.parseInt(String.valueOf(requestRun.getTime())));
 		runs.setUserId(user.getId());
 		runsDao.create(runs);
 		
@@ -43,10 +44,22 @@ public class RunServiceImpl implements RunService{
 	}
 
 	@Override
-	public List<Runs> queryRun(int userId) {
+	public List<RequestRun> queryRun(int userId) {
 		// TODO Auto-generated method stub
-		return runsDao.queryMeal(userId);
+		
+		List<RequestRun> requestList = new ArrayList<>();
+		RequestRun requestRun = null;
+		List<Runs> runList = runsDao.queryMeal(userId);
+		for(Runs r: runList){
+			requestRun = new RequestRun();
+			requestRun.setRunId(r.getRunId());
+			requestRun.setDate(r.getDate());
+			requestRun.setDistance(r.getDistance());
+			requestRun.setTime(r.getTime());
+			requestRun.setUserId(r.getUserId());
+			requestList.add(requestRun);
+		}
+		
+		return requestList;
 	}
-
-
 }
