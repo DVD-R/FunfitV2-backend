@@ -32,18 +32,23 @@ public class Meals implements Serializable{
 	@JoinColumn(name = "dinnerId", referencedColumnName = "dinnerId")
 	private Dinner dinner;
 	
+	@ManyToOne
+	@JoinColumn(name = "snackId", referencedColumnName = "snackId")
+	private Snack snack;
+	
 	@Column(name = "userId")
 	private int userId;
 	
 	public Meals() {}
 
-	public Meals(int meal_id, String date, Breakfast breakfast, Lunch lunch, Dinner dinner, int userId) {
+	public Meals(int meal_id, String date, Breakfast breakfast, Lunch lunch, Dinner dinner, Snack snack ,int userId) {
 		super();
 		this.meal_id = meal_id;
 		this.date = date;
 		this.breakfast = breakfast;
 		this.lunch = lunch;
 		this.dinner = dinner;
+		this.snack = snack;
 		this.userId = userId;
 	}
 
@@ -85,6 +90,16 @@ public class Meals implements Serializable{
 
 	public void setDinner(Dinner dinner) {
 		this.dinner = dinner;
+	}
+
+	
+	
+	public Snack getSnack() {
+		return snack;
+	}
+
+	public void setSnack(Snack snack) {
+		this.snack = snack;
 	}
 
 	public int getUserId() {

@@ -14,6 +14,7 @@ import com.funfit.usjr.thesis.backend.data.dao.service.DinnerDao;
 import com.funfit.usjr.thesis.backend.data.dao.service.FoodDao;
 import com.funfit.usjr.thesis.backend.data.dao.service.LunchDao;
 import com.funfit.usjr.thesis.backend.data.dao.service.MealsDao;
+import com.funfit.usjr.thesis.backend.data.dao.service.SnackDao;
 import com.funfit.usjr.thesis.backend.data.dao.service.UserDao;
 import com.funfit.usjr.thesis.backend.dto.RequestMeal;
 import com.funfit.usjr.thesis.backend.dto.ResponseMeal;
@@ -23,6 +24,7 @@ import com.funfit.usjr.thesis.backend.models.Dinner;
 import com.funfit.usjr.thesis.backend.models.Food;
 import com.funfit.usjr.thesis.backend.models.Lunch;
 import com.funfit.usjr.thesis.backend.models.Meals;
+import com.funfit.usjr.thesis.backend.models.Snack;
 import com.funfit.usjr.thesis.backend.models.Users;
 import com.funfit.usjr.thesis.backend.service.SaveMealService;
 
@@ -48,6 +50,9 @@ public class SaveMealServiceImpl implements SaveMealService{
 	@Autowired
 	private UserDao userDao;
 	
+	@Autowired
+	private SnackDao snackDao;
+	
 	private Food food;
 	private Breakfast breakfast;
 	private Lunch lunch;
@@ -55,6 +60,7 @@ public class SaveMealServiceImpl implements SaveMealService{
 	private Meals meals;
 	private Users user;
 	private boolean flag;
+	private Snack snack;
 	@Override
 	public ResponseEntity<ResponseStatus> saveMeal(RequestMeal requestMeal) {
 		// TODO Auto-generated method stub
@@ -112,7 +118,34 @@ public class SaveMealServiceImpl implements SaveMealService{
 			ResponseStatus responseStats = new ResponseStatus();
 			responseStats.setStatus(true);
 			return new ResponseEntity<>(responseStats, HttpStatus.OK);
-
+			
+		
+		case "Snack":	
+			meals = new Meals();
+			snack = new Snack();
+			user = userDao.show(requestMeal.getUserId());
+			Food fos = setFood(requestMeal);
+			foodDao.create(fos);
+			snack.setFood(fos);
+			snackDao.create(snack);
+			meals.setDate(requestMeal.getDate());
+			meals.setSnack(snack);
+			meals.setUsers(user.getId());
+			mealsDao.create(meals);
+		
+		case "Snacks":
+			meals = new Meals();
+			snack = new Snack();
+			user = userDao.show(requestMeal.getUserId());
+			Food fs = setFood(requestMeal);
+			foodDao.create(fs);
+			snack.setFood(fs);
+			snackDao.create(snack);
+			meals.setDate(requestMeal.getDate());
+			meals.setSnack(snack);
+			meals.setUsers(user.getId());
+			mealsDao.create(meals);
+			
 		}
 		
 		return new ResponseEntity<>(HttpStatus.CONFLICT);
@@ -198,6 +231,25 @@ public class SaveMealServiceImpl implements SaveMealService{
 			}catch(Exception e){
 				
 			}
+
+			try{
+				responseMeal = new ResponseMeal();
+				snack = snackDao.show(m.getSnack().getSnackId());
+				food = foodDao.show(snack.getFood().getFoodId());
+				responseMeal.setCalories(food.getCalories());
+				responseMeal.setCarbohydrate(food.getCarbohydrate());
+				responseMeal.setCholesterol(food.getCholesterol());
+				responseMeal.setCourse(food.getCourse());
+				responseMeal.setDate(m.getDate());
+				responseMeal.setFat(food.getFat());
+				responseMeal.setName(food.getName());
+				responseMeal.setProtein(food.getProtein());
+				responseMeal.setSodium(food.getSodium());
+				responseList.add(responseMeal);
+				
+			}catch(Exception e){
+				
+			}
 			
 		}
 		
@@ -256,6 +308,30 @@ public class SaveMealServiceImpl implements SaveMealService{
 			meals.setUsers(user.getId());
 			mealsDao.create(meals);
 			responseStatus.setStatus(true);
+		}else if(requestMeal.getCourse().equals("Snacks")){
+			meals = new Meals();
+			snack = new Snack();
+			user = userDao.show(requestMeal.getUserId());
+			Food foods = setFood(requestMeal);
+			foodDao.create(foods);
+			snack.setFood(foods);
+			snackDao.create(snack);
+			meals.setDate(requestMeal.getDate());
+			meals.setSnack(snack);
+			meals.setUsers(user.getId());
+			mealsDao.create(meals);
+		}else if(requestMeal.getCourse().equals("Snack")){
+			meals = new Meals();
+			snack = new Snack();
+			user = userDao.show(requestMeal.getUserId());
+			Food foods = setFood(requestMeal);
+			foodDao.create(foods);
+			snack.setFood(foods);
+			snackDao.create(snack);
+			meals.setDate(requestMeal.getDate());
+			meals.setSnack(snack);
+			meals.setUsers(user.getId());
+			mealsDao.create(meals);
 		}
 		
 		}
